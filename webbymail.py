@@ -82,12 +82,13 @@ def handle_mail_pipe(fd):
     else:
         logger.error("Processing message with no Message-ID!")
 
-    logger.debug("Headers found in mail: " + msg.keys())
+    logger.debug("Headers found in mail: " + ' '.join(msg.keys()))
 
     # Check user permissions
     if not msg.get('From'):
         raise KeyError, "No From: header found!"
-    if not verify_allowed_user(msg.get('From')):
+    fromaddr = email.utils.parseaddr(msg.get('From'))[1]
+    if not verify_allowed_user(fromaddr):
         logger.error("Unauthorized usage from " + msg.get('From'))
         raise UnauthorizedUserError, "Not allowed to accept mail from " + msg.get('From')
 
@@ -163,7 +164,7 @@ if __name__ == '__main__':
     for url in urllist:
         objectlist = [fetch_url(url)]
 
-    msg = construct_mail(destination, objectlist=objectlist)
+    msg = construct_mail(destination, subject="Re: " + urllist[0], objectlist=objectlist)
     send_mail(destination, msg.as_string())
 
 
