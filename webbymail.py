@@ -5,6 +5,7 @@
 
 __USERAGENT__ = "webbymail/0.01alpha1 +http://github.com/rtucker/webbymail/"
 __SENDER__ = "webbymail@hoopycat.com"
+__ALLOWEDUSERS__ = ["rtucker@gmail.com"]
 
 import email
 import logging
@@ -51,7 +52,7 @@ def verify_allowed_user(email):
     Checks the sender's e-mail address to ensure they're allowed to use this
     service.
     """
-    if email in ['rtucker@gmail.com']:
+    if email in __ALLOWEDUSERS__:
         return True
 
     return False

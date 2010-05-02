@@ -7,3 +7,15 @@ access.  For example, if you're travelling and reading your RSS feeds while
 out of Internet range, you can queue up e-mails of things that catch your
 eye.
 
+To use, add to your /etc/aliases or somewhere like that:
+    webbymail: postmaster
+    webbymail-asdfasdf: "!/home/rtucker/dev/webbymail/webbymail.py"
+
+The webbymail alias is for any bounces that happen; the webbymail-asdfasdf
+alias is for actual mail handling.  Note that this is slightly obfuscated
+for some false level of security.
+
+Also, you'll want to change the following stuff in webbymail.py:
+    __ALLOWEDUSERS__
+    __SENDER__
+
