@@ -1,0 +1,9 @@
+This is a script that accepts a mail (via your MTA's pipe functionality),
+retrieves the URL given in the Subject:, and replies back with a collection
+of that page's objects in MIME format.
+
+This script is designed for cases where you have non-interactive Internet
+access.  For example, if you're travelling and reading your RSS feeds while
+out of Internet range, you can queue up e-mails of things that catch your
+eye.
+

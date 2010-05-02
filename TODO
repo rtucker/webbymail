@@ -1,0 +1,7 @@
+* Create an initial version of the webbymail script that fetches the HTML
+  and returns it.
+
+* Add image/CSS/etc support using MIME and adjustment of in-page URLs.
+
+* Add YouTube video support by sucking down the delicious flv.
+
